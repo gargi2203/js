@@ -1,0 +1,19 @@
+18
+40C:\Users\Kartik\Desktop\js\addImage\dist133670769649888272 1
+59C:\Users\Kartik\Desktop\js\addImage\dist\index.3a01df49.css133670769649516657 0
+51C:\Users\Kartik\Desktop\js\addImage\dist\index.html133670769649725179 0
+57C:\Users\Kartik\Desktop\js\addImage\dist\bg.5832b0a9.avif133670769649508229 0
+58C:\Users\Kartik\Desktop\js\addImage\dist\index.c4775257.js133670769649614258 0
+45C:\Users\Kartik\Desktop\js\addImage\script.js133670734042605013 0
+61C:\Users\Kartik\Desktop\js\addImage\dist\addImage.3464ddca.js133670769649614258 0
+58C:\Users\Kartik\Desktop\js\addImage\dist\index.672d4772.js133670769649725179 0
+65C:\Users\Kartik\Desktop\js\addImage\dist\addImage.3464ddca.js.map133670769649801174 0
+62C:\Users\Kartik\Desktop\js\addImage\dist\index.c4775257.js.map133670769649801174 0
+46C:\Users\Kartik\Desktop\js\addImage\index.html133670749570093085 0
+63C:\Users\Kartik\Desktop\js\addImage\dist\index.3a01df49.css.map133670769649801174 0
+62C:\Users\Kartik\Desktop\js\addImage\dist\index.672d4772.js.map133670769649888272 0
+43C:\Users\Kartik\Desktop\js\addImage\bg.avif133670739342152547 0
+43C:\Users\Kartik\Desktop\js\addImage\main.js133670749297043360 0
+53C:\Users\Kartik\Desktop\js\addImage\package-lock.json133670752912499475 0
+48C:\Users\Kartik\Desktop\js\addImage\package.json133670752910325657 0
+45C:\Users\Kartik\Desktop\js\addImage\style.css133670741754661632 0
