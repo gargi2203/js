@@ -5,7 +5,6 @@ body {
 }
 
 .content {
-  background-image: url("bg.5832b0a9.avif");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -14,8 +13,16 @@ body {
   overflow: hidden;
 }
 
+.three_bg {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 main {
-  background-image: repeating-linear-gradient(to right, #0000 0 50px, #fff1 50px 51px), repeating-linear-gradient(#0000 0 50px, #fff1 50px 51px);
   width: 100vw;
   height: 100vh;
   position: relative;
