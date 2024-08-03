@@ -38,7 +38,11 @@ function animate(){
         const x = geometry.attributes.position.getX(i);
         const y = geometry.attributes.position.getY(i);
 
-        const mouseEffect = 0.1 * Math.sin((x - mouseX * 10) * 2 + (y - mouseY * 10) * 2);
+        if (x <= -7 || x >= 7 || y <= -4 || y >= 4) {
+            continue; 
+        }
+
+        const mouseEffect = 0.1 * Math.sin((x - mouseX * 10) * 1 + (y - mouseY * 10) * 1);
 
         geometry.attributes.position.setZ(i,mouseEffect);
         
