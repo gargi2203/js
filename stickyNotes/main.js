@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import './style.css'
-import bg2 from './bg2.jpg'
+import bg from './bg.jpg'
 
 const container = document.querySelector('.three_bg')
 const loader = new THREE.TextureLoader();
@@ -14,7 +14,7 @@ container.appendChild(renderer.domElement);
 
 const geometry = new THREE.PlaneGeometry(14, 8, 15, 9);
 const material = new THREE.MeshBasicMaterial({
-    map: loader.load(bg2),
+    map: loader.load(bg),
 });
 
 const mesh = new THREE.Mesh(geometry, material);
@@ -24,17 +24,23 @@ camera.position.z = 5;
 const count = geometry.attributes.position.count;
 const clock = new THREE.Clock();
 
+let mouseX = 0;
+let mouseY = 0;
+
+window.addEventListener('mousemove', (event) => {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 0.5;
+    mouseY = (event.clientY / window.innerHeight) * 2 - 0.5;
+});
+
 function animate(){
     const time = clock.getElapsedTime();
     for(let i=0; i < count; i++){
         const x = geometry.attributes.position.getX(i);
         const y = geometry.attributes.position.getY(i);
 
-        const anim1 = 0.25 * Math.sin(x + time * 0.7);
-        const anim2 = 0.35 * Math.sin(x*1 + time * 0.7);
-        const anim3 = 0.1 * Math.sin(y*15 + time * 0.7);
+        const mouseEffect = 0.1 * Math.sin((x - mouseX * 10) * 2 + (y - mouseY * 10) * 2);
 
-        geometry.attributes.position.setZ(i, anim1+anim2+anim3);
+        geometry.attributes.position.setZ(i,mouseEffect);
         
     }
     geometry.computeVertexNormals();

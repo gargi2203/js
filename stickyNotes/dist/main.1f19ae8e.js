@@ -38356,14 +38356,14 @@ module.exports = reloadCSS;
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"bg2.jpg":[function(require,module,exports) {
-module.exports = "/bg2.07d93f6c.jpg";
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"bg.jpg":[function(require,module,exports) {
+module.exports = "/bg.c5f0adfe.jpg";
 },{}],"main.js":[function(require,module,exports) {
 "use strict";
 
 var THREE = _interopRequireWildcard(require("three"));
 require("./style.css");
-var _bg = _interopRequireDefault(require("./bg2.jpg"));
+var _bg = _interopRequireDefault(require("./bg.jpg"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
@@ -38383,15 +38383,19 @@ scene.add(mesh);
 camera.position.z = 5;
 var count = geometry.attributes.position.count;
 var clock = new THREE.Clock();
+var mouseX = 0;
+var mouseY = 0;
+window.addEventListener('mousemove', function (event) {
+  mouseX = event.clientX / window.innerWidth * 2 - 0.5;
+  mouseY = event.clientY / window.innerHeight * 2 - 0.5;
+});
 function animate() {
   var time = clock.getElapsedTime();
   for (var i = 0; i < count; i++) {
     var x = geometry.attributes.position.getX(i);
     var y = geometry.attributes.position.getY(i);
-    var anim1 = 0.25 * Math.sin(x + time * 0.7);
-    var anim2 = 0.35 * Math.sin(x * 1 + time * 0.7);
-    var anim3 = 0.1 * Math.sin(y * 15 + time * 0.7);
-    geometry.attributes.position.setZ(i, anim1 + anim2 + anim3);
+    var mouseEffect = 0.1 * Math.sin((x - mouseX * 10) * 2 + (y - mouseY * 10) * 2);
+    geometry.attributes.position.setZ(i, mouseEffect);
   }
   geometry.computeVertexNormals();
   geometry.attributes.position.needsUpdate = true;
@@ -38399,7 +38403,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 animate();
-},{"three":"node_modules/three/build/three.module.js","./style.css":"style.css","./bg2.jpg":"bg2.jpg"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"three":"node_modules/three/build/three.module.js","./style.css":"style.css","./bg.jpg":"bg.jpg"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -38424,7 +38428,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51759" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53803" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
