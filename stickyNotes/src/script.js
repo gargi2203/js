@@ -33,36 +33,83 @@ let note = {
     y: null
 }
 
-document.addEventListener('mousedown', (e) => {
-    if(e.target.classList.contains('note')){
+
+
+function onMouseDown(e) {
+    if (e.target.classList.contains('note')) {
         cursor = {
             x: e.clientX,
             y: e.clientY
-        } 
+        };
         note = {
-            dom: e.target, 
+            dom: e.target,
             x: e.target.getBoundingClientRect().left,
             y: e.target.getBoundingClientRect().top
-        }
+        };
     }
-})
+}
 
-document.addEventListener('mousemove', (e) => {
-    if(note.dom == null) return;
+function onTouchStart(e) {
+    if (e.target.classList.contains('note')) {
+        cursor = {
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY
+        };
+        note = {
+            dom: e.target,
+            x: e.target.getBoundingClientRect().left,
+            y: e.target.getBoundingClientRect().top
+        };
+    }
+}
+
+function onMouseMove(e) {
+    if (note.dom == null) return;
     let currentCursor = {
         x: e.clientX,
         y: e.clientY
-    }
+    };
     let distance = {
         x: currentCursor.x - cursor.x,
         y: currentCursor.y - cursor.y
-    }
+    };
     note.dom.style.left = (note.x + distance.x) + 'px';
     note.dom.style.top = (note.y + distance.y) + 'px';
     note.dom.style.cursor = 'grab';
-})
-document.addEventListener('mouseup', () => {
-    if(note.dom == null) return;
+}
+
+function onTouchMove(e) {
+    if (note.dom == null) return;
+    let currentCursor = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
+    };
+    let distance = {
+        x: currentCursor.x - cursor.x,
+        y: currentCursor.y - cursor.y
+    };
+    note.dom.style.left = (note.x + distance.x) + 'px';
+    note.dom.style.top = (note.y + distance.y) + 'px';
+    note.dom.style.cursor = 'grab';
+}
+
+function onMouseUp() {
+    if (note.dom == null) return;
     note.dom.style.cursor = 'auto';
-    note.dom=null;
-});
+    note.dom = null;
+}
+
+function onTouchEnd() {
+    if (note.dom == null) return;
+    note.dom.style.cursor = 'auto';
+    note.dom = null;
+}
+
+document.addEventListener('mousedown', onMouseDown);
+document.addEventListener('touchstart', onTouchStart);
+
+document.addEventListener('mousemove', onMouseMove);
+document.addEventListener('touchmove', onTouchMove);
+
+document.addEventListener('mouseup', onMouseUp);
+document.addEventListener('touchend', onTouchEnd);
